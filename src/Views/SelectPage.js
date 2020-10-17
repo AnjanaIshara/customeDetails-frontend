@@ -5,8 +5,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Form from "./Views/Form";
-import Listusers from "./Views/Listusers";
+
+import Register from "./Register";
+import ListUsers from "./Listusers"
+import Home from "./Home";
 export default function App() {
   return (
     <Router>
@@ -17,10 +19,10 @@ export default function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">Register the user</Link>
+              <Link to="/about">List</Link>
             </li>
             <li>
-              <Link to="/users">List the users</Link>
+              <Link to="/users">Register</Link>
             </li>
           </ul>
         </nav>
@@ -28,23 +30,17 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <Form />
+          <Route path="/list">
+            <ListUsers />
           </Route>
           <Route path="/users">
-            <Listusers />
+            <Register />
           </Route>
           <Route path="/">
-            <Home />
+            <Home/>
           </Route>
         </Switch>
       </div>
     </Router>
   );
 }
-
-function Home() {
-  return <h2></h2>;
-}
-
-
